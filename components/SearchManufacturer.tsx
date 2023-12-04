@@ -39,7 +39,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
 
           <Combobox.Input
             className='search-manufacturer__input'
-            placeholder='Volkswagen'
+            placeholder='Toyota'
             displayValue={(manufacturer: string) => manufacturer}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -51,7 +51,7 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
             leaveTo='opacity-0'
             afterLeave={() => setQuery('')}
           >
-            <Combobox.Options>
+            <Combobox.Options className='search-manufacturer__options z-10'>
               {
                 filteredManufacturers.map((item) => (
                   <Combobox.Option

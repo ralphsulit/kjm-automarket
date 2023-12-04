@@ -32,7 +32,7 @@ const CarCard = ({ car }: CarCardProps) => {
       </p>
 
       <div className='relative w-full h-40 my-3 object-contain'>
-        <Image src='/hero.png' alt='car model' fill priority object-contain/>
+        <Image src='/hero.png' alt='car model' className='object-contain' fill priority/>
       </div>
 
       <div className='relative flex w-full mt-2'>
@@ -48,7 +48,7 @@ const CarCard = ({ car }: CarCardProps) => {
           <div className='flex flex-col justify-center items-center gap-2'>
             <Image src='/tire.svg' width={20} height={20} alt='tire' />
             <p className='text-[14px]'>
-              { drive.toUpperCase()}
+              { year }
             </p>
           </div>
           {/* Miles per gallon */}
