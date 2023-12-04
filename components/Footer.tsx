@@ -40,7 +40,7 @@ const Footer = () => {
 
 
       <div className='flex justify-between items-center flex-wrap mt-10 border-t border-gray100 sm:px-16 px-6 py-10'>
-        <p>@2023 Carhub. All right reserved &copy;</p>
+        <p>@2023 Carhub. All rights reserved &copy;</p>
         <div className='footer__copyrights-link'>
           <Link
             href='/'
