@@ -7,7 +7,6 @@ import { Listbox, Transition } from '@headlessui/react';
 
 // Next imports
 import { useRouter } from 'next/navigation';
-import { Router } from 'next/router';
 import Image from 'next/image';
 
 // Custom imports

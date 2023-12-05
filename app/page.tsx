@@ -1,15 +1,23 @@
 // Components
-import { Hero, SearchBar, CustomFilter, CarCard } from "@/components";
+import { Hero, SearchBar, CustomFilter, CarCard, ShowMore } from "@/components";
 import { yearsOfProduction, fuels } from "@/constants";
 
 // Utils
 import { fetchCars } from "@/utils";
 
+interface SearchParams {
+  manufacturer?: string;
+  year?: number;
+  fuel?: string;
+  limit?: number;
+  model?: string;
+}
 
-export default async function Home({ searchParams }) {
+
+export default async function Home({ searchParams }: { searchParams: SearchParams }) {
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || '',
-    year: searchParams.year || '',
+    year: searchParams.year || 2022,
     fuel: searchParams.fuel || '',
     limit: searchParams.limit || 8,
     model: searchParams.model || '',
@@ -40,9 +48,14 @@ export default async function Home({ searchParams }) {
           <section>
             <div className="home__cars-wrapper">
               {allCars?.map((car) =>
-                <CarCard car={car} />
+                <CarCard key={car.id} car={car}/>          
               )}
             </div>
+
+            <ShowMore
+              pageNumber={(searchParams.limit || 8) / 8}
+              isNext={(searchParams.limit || 8) > allCars.length}
+            />
           </section>
         ) : (
             <div className="home__error-container">
